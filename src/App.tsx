@@ -90,10 +90,10 @@ function Tilt({ children, className = '' }: { children: React.ReactNode; classNa
       const rect = el.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
-      
+
       const xc = rect.width / 2;
       const yc = rect.height / 2;
-      
+
       const tiltX = (yc - y) / 15;
       const tiltY = (x - xc) / 20;
 
@@ -135,16 +135,22 @@ function Tilt({ children, className = '' }: { children: React.ReactNode; classNa
 
 // Helper Component for Splitting Text character by character
 function SplitText({ text, className = '', charClassName = '' }: { text: string; className?: string; charClassName?: string }) {
+  const words = text.split(' ');
   return (
     <span className={className}>
-      {text.split('').map((char, index) => (
-        <span key={index} className="char-mask">
-          <span 
-            className={`char-item ${charClassName}`}
-            style={{ display: 'inline-block' }}
-          >
-            {char === ' ' ? '\u00A0' : char}
-          </span>
+      {words.map((word, wordIdx) => (
+        <span key={wordIdx} className="inline-block whitespace-nowrap">
+          {word.split('').map((char, charIdx) => (
+            <span key={charIdx} className="char-mask">
+              <span
+                className={`char-item ${charClassName}`}
+                style={{ display: 'inline-block' }}
+              >
+                {char}
+              </span>
+            </span>
+          ))}
+          {wordIdx < words.length - 1 && <span className="inline-block">&nbsp;</span>}
         </span>
       ))}
     </span>
@@ -230,7 +236,7 @@ export default function App() {
   // Mouse movement tracking for custom cursor and spotlight glow (DOM direct updates for max performance)
   useEffect(() => {
     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    
+
     const handleMouseMoveSpotlight = (e: MouseEvent) => {
       const spotlight = spotlightRef.current;
       if (spotlight) {
@@ -336,31 +342,31 @@ export default function App() {
     const ctx = gsap.context(() => {
       // Hero entrance sequences
       const heroTl = gsap.timeline();
-      
+
       // Step 1: Background grid and orbs fade in
       heroTl.fromTo(['.bg-grid-pattern', '.bg-orb'],
         { opacity: 0 },
-        { 
-          opacity: (_, el) => el.classList.contains('bg-grid-pattern') ? 0.4 : 1, 
-          duration: 1.5, 
-          ease: 'power2.out' 
+        {
+          opacity: (_, el) => el.classList.contains('bg-grid-pattern') ? 0.4 : 1,
+          duration: 1.5,
+          ease: 'power2.out'
         }
       );
-      
+
       // Step 1.5: Greeting fade-in
       heroTl.fromTo('.hero-greeting',
         { y: 20, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' },
         '-=1.2'
       );
-      
+
       // Step 2: Name reveals (using vertical translate reveal on spans)
       heroTl.fromTo('.hero-name-char',
         { yPercent: 100 },
         { yPercent: 0, duration: 0.5, stagger: 0.02, ease: 'power4.out' },
         '-=0.4'
       );
-      
+
       // Step 2b: Underline line animation
       heroTl.to('.hero-underline',
         { scaleX: 1, duration: 0.6, ease: 'power2.inOut' },
@@ -555,12 +561,12 @@ export default function App() {
             <span className="flex items-center gap-1.5"><Sparkles size={10} className="text-cyan-400" /> campus-hyper-brain.ai</span>
             <span className="text-indigo-400 font-bold">Finalist Node</span>
           </div>
-          
+
           <div className="my-2 p-3 bg-white/5 rounded-xl border border-white/5 flex items-center justify-between text-xs text-gray-300 shadow-inner">
             <span>Tell me about Quicksort optimization</span>
             <button className="px-3 py-1 rounded-lg bg-indigo-600 text-[10px] text-white font-bold shadow-md shadow-indigo-600/30">Ask AI</button>
           </div>
-          
+
           <div className="grid grid-cols-2 gap-3 text-[10px]">
             <div className="p-2.5 rounded-xl bg-indigo-500/5 border border-indigo-500/10">
               <p className="font-bold text-gray-200">Syllabus Breakdown</p>
@@ -591,7 +597,7 @@ export default function App() {
             <span>BiteXpress Food Cart</span>
             <span className="text-cyan-400 font-bold">3 items</span>
           </div>
-          
+
           <div className="space-y-2 my-2 text-xs">
             <div className="flex justify-between items-center bg-white/5 p-2 rounded-lg border border-white/5">
               <span className="text-gray-300">Spicy Miso Ramen</span>
@@ -627,7 +633,7 @@ export default function App() {
             <span>Productivity Board</span>
             <span className="text-emerald-400 font-bold">66% Completed</span>
           </div>
-          
+
           <div className="space-y-2 my-2 text-xs">
             <div className="flex items-center gap-2 text-gray-500 line-through">
               <div className="w-4 h-4 rounded border border-indigo-500 bg-indigo-500/20 flex items-center justify-center text-[9px] text-indigo-400">✓</div>
@@ -662,7 +668,7 @@ export default function App() {
             <span>Standard Calculator</span>
             <span className="text-purple-400 font-bold">Active</span>
           </div>
-          
+
           <div className="text-right py-2 bg-white/5 rounded px-2 border border-white/5 font-mono w-full">
             <div className="text-[10px] text-gray-500">12.5 * 8</div>
             <div className="text-sm font-bold text-gray-200">100</div>
@@ -902,14 +908,20 @@ export default function App() {
           </div>
 
           {/* Image (Right Column) */}
-          <div className="hero-avatar-card flex justify-center md:justify-end order-1 md:order-2 flex-shrink-0">
-            <div className="relative w-64 h-84 md:w-[330px] md:h-[440px] overflow-hidden rounded-2xl">
+          <div className="hero-avatar-card flex justify-center md:justify-end order-1 md:order-2 flex-shrink-0 relative">
+            {/* Soft Ambient Outer Glow behind the card */}
+            <div className="absolute -inset-6 bg-gradient-to-tr from-indigo-500/20 to-cyan-500/20 rounded-full blur-3xl opacity-60 z-0 pointer-events-none" />
+
+            <div className="relative w-72 h-72 md:w-[330px] md:h-[330px] overflow-hidden rounded-3xl glass-panel border border-white/10 z-10">
+              {/* Premium Glow Aura Behind Image inside the card */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/10 via-purple-500/5 to-cyan-500/10 opacity-60 z-0 pointer-events-none" />
+
               <img
-                src="/aditya pawar.png"
+                src='aditya pawar.png'
                 alt="Aditya Dnyaneshwar Pawar"
-                className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                className="w-full h-full object-contain object-bottom transition-transform duration-700 hover:scale-[1.03] z-10 relative"
               />
-              <div className="absolute bottom-2 right-2 bg-indigo-500/90 p-2 rounded-lg text-white z-10 backdrop-blur-sm">
+              <div className="absolute bottom-3 right-3 bg-indigo-500/90 p-2 rounded-lg text-white z-20 backdrop-blur-sm shadow-md">
                 <Sparkles size={16} />
               </div>
             </div>
@@ -926,7 +938,7 @@ export default function App() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-            
+
             {/* Info panel / Sidebar info */}
             <div className="lg:col-span-1 glass-panel rounded-2xl p-6 flex flex-col gap-6">
               <div className="flex items-center gap-3.5 text-gray-300 text-sm">
@@ -938,7 +950,7 @@ export default function App() {
                   <p className="font-semibold text-gray-200">Jalgaon, Maharashtra</p>
                 </div>
               </div>
-              
+
               <div className="flex items-center gap-3.5 text-gray-300 text-sm">
                 <div className="p-3 rounded-xl bg-white/5 border border-white/5">
                   <GraduationCap size={18} className="text-indigo-400" />
@@ -1042,9 +1054,8 @@ export default function App() {
             ].map((category, idx) => (
               <div
                 key={idx}
-                className={`skills-card gsap-reveal glass-panel rounded-2xl p-6 hover:border-indigo-500/20 hover:shadow-indigo-500/5 hover:-translate-y-1 transition-all duration-300 ${
-                  category.fullWidth ? 'md:col-span-2 lg:col-span-1' : ''
-                }`}
+                className={`skills-card gsap-reveal glass-panel rounded-2xl p-6 hover:border-indigo-500/20 hover:shadow-indigo-500/5 hover:-translate-y-1 transition-all duration-300 ${category.fullWidth ? 'md:col-span-2 lg:col-span-1' : ''
+                  }`}
               >
                 <div className="flex items-center gap-3 mb-6">
                   <div className="p-2 rounded-lg bg-white/5 border border-white/5">
@@ -1096,18 +1107,16 @@ export default function App() {
                 {experienceData.map((exp) => (
                   <div key={exp.id} className="timeline-reveal relative group">
                     {/* Glowing timeline node */}
-                    <div className={`absolute -left-[31px] md:-left-[23px] top-2.5 w-4 h-4 rounded-full border-2 border-[#030712] shadow-lg transition-all duration-300 group-hover:scale-125 z-10 ${
-                      exp.current 
-                        ? 'bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.5)]' 
+                    <div className={`absolute -left-[31px] md:-left-[23px] top-2.5 w-4 h-4 rounded-full border-2 border-[#030712] shadow-lg transition-all duration-300 group-hover:scale-125 z-10 ${exp.current
+                        ? 'bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.5)]'
                         : 'bg-indigo-500'
-                    }`} />
-                    
+                      }`} />
+
                     {/* Premium Card layout */}
-                    <motion.div 
+                    <motion.div
                       whileHover={{ y: -4 }}
-                      className={`glass-panel rounded-2xl p-6 md:p-8 hover:border-indigo-500/20 hover:shadow-indigo-500/5 transition-all duration-300 relative ${
-                        exp.current ? 'border-emerald-500/10' : ''
-                      }`}
+                      className={`glass-panel rounded-2xl p-6 md:p-8 hover:border-indigo-500/20 hover:shadow-indigo-500/5 transition-all duration-300 relative ${exp.current ? 'border-emerald-500/10' : ''
+                        }`}
                     >
                       <div className="flex flex-col sm:flex-row justify-between sm:items-start gap-4 mb-4">
                         <div className="flex gap-3.5 items-center">
@@ -1121,7 +1130,7 @@ export default function App() {
                             <p className="text-indigo-400 text-sm font-semibold mt-0.5">{exp.company}</p>
                           </div>
                         </div>
-                        
+
                         <div className="flex flex-wrap items-center gap-2">
                           <span className="px-3.5 py-1 text-xs font-bold text-gray-400 bg-white/5 rounded-full border border-white/5 whitespace-nowrap">
                             {exp.period}
@@ -1133,7 +1142,7 @@ export default function App() {
                           )}
                         </div>
                       </div>
-                      
+
                       <p className="text-gray-300 text-sm leading-relaxed text-justify mb-4">
                         {exp.desc}
                       </p>
@@ -1288,7 +1297,7 @@ export default function App() {
                   className="project-card gsap-reveal glass-panel rounded-3xl p-6 md:p-8 flex flex-col justify-between group hover:border-indigo-500/25 transition-all duration-300 gap-6 w-full h-full"
                 >
                   <div className={`${project.featured ? 'grid grid-cols-1 lg:grid-cols-2 gap-6 items-center' : 'flex flex-col gap-6'}`}>
-                    
+
                     {/* Left Column Details */}
                     <div className="space-y-4">
                       <div className="flex items-center gap-3">
@@ -1297,12 +1306,11 @@ export default function App() {
                         ) : (
                           <span className="text-xs font-extrabold tracking-widest text-indigo-400 uppercase">Project</span>
                         )}
-                        
-                        <span className={`px-2 py-0.5 text-[10px] font-bold rounded flex items-center gap-1 ${
-                          project.statusType === 'saas' 
-                            ? 'bg-amber-500/10 border border-amber-500/20 text-amber-500' 
+
+                        <span className={`px-2 py-0.5 text-[10px] font-bold rounded flex items-center gap-1 ${project.statusType === 'saas'
+                            ? 'bg-amber-500/10 border border-amber-500/20 text-amber-500'
                             : 'bg-emerald-500/10 border border-emerald-500/20 text-emerald-500'
-                        }`}>
+                          }`}>
                           {project.statusType === 'saas' ? <Hourglass size={10} /> : <CheckCircle2 size={10} />}
                           {project.status}
                         </span>
@@ -1344,7 +1352,7 @@ export default function App() {
                               Repository
                             </a>
                           )}
-                          
+
                           {project.live && (
                             <a
                               href={project.live}
@@ -1380,7 +1388,7 @@ export default function App() {
                         Repository
                       </a>
                     )}
-                    
+
                     {project.live && (
                       <a
                         href={project.live}
@@ -1416,7 +1424,7 @@ export default function App() {
               <div className="glass-panel rounded-3xl p-8 border border-amber-500/20 relative overflow-hidden group hover:border-amber-500/30 transition-all duration-300 h-full">
                 {/* Background Glow */}
                 <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
-                
+
                 <div className="flex flex-col md:flex-row gap-6 justify-between items-start">
                   <div className="space-y-4">
                     <div className="flex items-center gap-3">
@@ -1427,14 +1435,14 @@ export default function App() {
                         National Finalist
                       </span>
                     </div>
-                    
+
                     <h4 className="text-2xl md:text-3xl font-extrabold text-gray-100 group-hover:text-amber-400 transition-colors">
                       Build with Google TechSprint
                     </h4>
                     <p className="text-sm font-bold text-amber-500/80">
                       Top 10 Nationwide Finalist | Solo Developer
                     </p>
-                    
+
                     <p className="text-gray-400 text-sm leading-relaxed text-justify">
                       Competed against hundreds of teams nationwide as a solo developer with the project <strong>Campus Hyper Brain</strong>. Engineered an AI-driven SaaS platform that parses college syllabi to generate customized study aids and interactive training environments. Achieved a placement in the top 10 nationwide out of hundreds of entries.
                     </p>
@@ -1472,7 +1480,7 @@ export default function App() {
                   <p className="text-[10px] font-bold text-gray-500 uppercase mt-1 tracking-wider">National Finalist</p>
                 </div>
               </div>
-              
+
               {/* Google Arcade Reward Badge Card */}
               <Tilt>
                 <div className="glass-panel rounded-2xl p-5 border border-indigo-500/10 hover:border-indigo-500/20 transition-all flex items-center gap-4 h-full">
@@ -1489,7 +1497,7 @@ export default function App() {
 
             {/* Timeline/Cards hybrid for secondary achievements (spans all 3 columns) */}
             <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
-              
+
               {/* Explore & Evolve */}
               <Tilt>
                 <div className="glass-panel rounded-2xl p-6 hover:border-indigo-500/20 hover:shadow-indigo-500/5 transition-all flex flex-col justify-between h-full">
@@ -1666,7 +1674,7 @@ export default function App() {
                   <span>pawaraditya1383@gmail.com</span>
                 </a>
               </div>
-              
+
               <div>
                 <p className="text-[10px] uppercase font-bold text-gray-500 tracking-wider mb-2">Location</p>
                 <div className="flex items-center gap-2.5 text-gray-400 text-sm">
