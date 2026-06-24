@@ -1,0 +1,192 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+@theme {
+  --color-obsidian-bg: #030712;
+  --color-obsidian-card: rgba(17, 24, 39, 0.45);
+  --color-obsidian-border: rgba(255, 255, 255, 0.06);
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+  @apply bg-[#030712] text-gray-100 font-sans antialiased overflow-x-hidden;
+  min-height: 100vh;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #030712;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6366f1;
+}
+
+/* Scroll Snap/Scroll Padding */
+html {
+  scroll-padding-top: 80px;
+  scroll-behavior: smooth;
+}
+
+/* Typography Gradient utility */
+.text-gradient {
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-indigo {
+  background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glassmorphism Styles */
+.glass-panel {
+  background: rgba(17, 24, 39, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+  will-change: transform, border-color, box-shadow;
+}
+
+.glass-nav {
+  background: rgba(3, 7, 18, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Moving Grid Background */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 40px 40px;
+  }
+}
+
+/* Floating Blur Orbs */
+.bg-orb {
+  filter: blur(100px);
+  will-change: transform;
+}
+
+.bg-orb-1 {
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, transparent 70%);
+  animation: driftOrbOne 25s ease-in-out infinite alternate;
+}
+
+.bg-orb-2 {
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.06) 0%, transparent 70%);
+  animation: driftOrbTwo 30s ease-in-out infinite alternate;
+}
+
+@keyframes driftOrbOne {
+  0% {
+    transform: translate(-10%, -10%) scale(1);
+  }
+  50% {
+    transform: translate(20%, 30%) scale(1.2);
+  }
+  100% {
+    transform: translate(-5%, 15%) scale(0.9);
+  }
+}
+
+@keyframes driftOrbTwo {
+  0% {
+    transform: translate(15%, 20%) scale(1.1);
+  }
+  50% {
+    transform: translate(-20%, -15%) scale(0.8);
+  }
+  100% {
+    transform: translate(10%, -5%) scale(1);
+  }
+}
+
+/* Custom Cursor Follower Styles */
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #6366f1;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+}
+
+.cursor-ring {
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid rgba(99, 102, 241, 0.45);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  will-change: transform, width, height, background-color, border-color;
+  transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.cursor-ring.cursor-hover {
+  width: 56px;
+  height: 56px;
+  background-color: rgba(99, 102, 241, 0.08);
+  border-color: rgba(99, 102, 241, 0.8);
+}
+
+.cursor-ring.cursor-card-hover {
+  width: 72px;
+  height: 72px;
+  border-color: rgba(6, 182, 212, 0.7);
+  background-color: rgba(6, 182, 212, 0.05);
+}
+
+/* Perspective wrapper for 3D card tilt */
+.perspective-container {
+  perspective: 1200px;
+}
+
+/* Text Mask */
+.char-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.char-item {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* GSAP Animations Hidden helper */
+.gsap-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+}
