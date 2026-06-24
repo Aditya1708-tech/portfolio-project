@@ -917,7 +917,7 @@ export default function App() {
               <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/10 via-purple-500/5 to-cyan-500/10 opacity-60 z-0 pointer-events-none" />
 
               <img
-                src='aditya pawar.png'
+                src="/aditya pawar.png?v=3"
                 alt="Aditya Dnyaneshwar Pawar"
                 className="w-full h-full object-contain object-bottom transition-transform duration-700 hover:scale-[1.03] z-10 relative"
               />
