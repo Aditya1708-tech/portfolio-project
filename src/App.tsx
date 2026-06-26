@@ -561,12 +561,12 @@ export default function App() {
     {
       id: 'campus-hyper-brain',
       featured: true,
-      status: 'SaaS (In Development)',
+      status: 'In Progress',
       statusType: 'saas',
       title: 'Campus Hyper Brain',
-      subtitle: 'Solo Developer | Top 10 Nationwide Google TechSprint Finalist',
-      desc: 'An AI-powered SaaS study platform designed to parse institution syllabi and transform raw educational data into comprehensive, structured study materials. Features custom AI Tutor modules helping students navigate conceptual domains under customized training algorithms.',
-      tech: ['React', 'Gemini API', 'Tailwind CSS', 'TypeScript', 'Git'],
+      subtitle: 'Solo Developer | Google TechSprint Finalist',
+      desc: 'An AI study platform that converts college syllabi into structured study guides. Built a custom AI tutor interface using the Gemini API to help students test themselves on specific topics.',
+      tech: ['React', 'Gemini API', 'Tailwind CSS', 'TypeScript'],
       github: 'https://github.com/Aditya1708-tech/campus-hyper-brain',
       live: null,
       mockup: (
@@ -601,7 +601,7 @@ export default function App() {
       statusType: 'completed',
       title: 'BiteXpress',
       subtitle: '',
-      desc: 'A multi-restaurant delivery and cart coordination platform. Features an advanced dynamic cart mechanism, coupon validation logic, payment routing simulations, and a fully featured administrative tracking dashboard.',
+      desc: 'A food delivery platform supporting multiple restaurants. Built a dynamic cart system, coupon validation rules, and simulated checkout flow.',
       tech: ['React', 'JavaScript', 'REST APIs', 'CSS3'],
       github: 'https://github.com/Aditya1708-tech/BiteXpress',
       live: 'https://aditya1708-tech.github.io/BiteXpress/',
@@ -637,7 +637,7 @@ export default function App() {
       statusType: 'completed',
       title: 'To-Do List App',
       subtitle: '',
-      desc: 'A productivity task management solution designed with responsive layouts. Created using HTML5 semantic elements and vanilla CSS3 layouts, deployed via Vercel for high-performance hosting.',
+      desc: 'A simple productivity dashboard. Focused on clean semantic HTML and responsive layouts, deployed on Vercel.',
       tech: ['HTML5', 'CSS3', 'JavaScript', 'Vercel'],
       github: 'https://github.com/Aditya1708-tech/To-Do-List',
       live: 'https://to-do-list-seven-gules-74.vercel.app/',
@@ -672,8 +672,8 @@ export default function App() {
       statusType: 'completed',
       title: 'Calculator App',
       subtitle: '',
-      desc: 'A modern calculator application featuring full arithmetic operations, standard math procedures, and keyboard event tracking. Built as a responsive glassmorphic utility widget.',
-      tech: ['HTML5', 'CSS3', 'JavaScript', 'GitHub Pages'],
+      desc: 'A responsive glassmorphic calculator supporting full arithmetic operations and keyboard input shortcuts.',
+      tech: ['HTML5', 'CSS3', 'JavaScript'],
       github: 'https://github.com/Aditya1708-tech/Calculator-New',
       live: 'https://aditya1708-tech.github.io/Calculator-New/',
       mockup: (
@@ -715,13 +715,11 @@ export default function App() {
       location: 'Remote',
       period: 'Jun 2026 – Present',
       current: true,
-      desc: 'Building full-stack applications using React, Next.js, Node.js, and MongoDB during an ongoing internship focused on production-level development.',
+      desc: 'Building full-stack web applications using React, Next.js, Node.js, and MongoDB during my developer internship.',
       highlights: [
-        'Developing scalable frontend interfaces using React and Next.js',
-        'Integrating REST APIs and backend systems',
-        'Working with MongoDB for data management',
-        'Applying component architecture and code quality practices',
-        'Hands-on experience with modern full-stack workflows'
+        'Developed scalable components and user interfaces using React and Next.js',
+        'Integrated REST APIs and worked with MongoDB schemas',
+        'Participated in active team sprints and daily syncs'
       ],
       tech: ['React', 'Next.js', 'Node.js', 'MongoDB', 'REST APIs'],
       icon: <Server className="w-5 h-5 text-indigo-400" />
@@ -733,14 +731,12 @@ export default function App() {
       location: 'Remote',
       period: 'Jun 2026 – Present',
       current: true,
-      desc: 'Contributing to frontend engineering workflows and UI development while working on modern interface implementation.',
+      desc: 'Contributing to frontend workflows and user interface development for AI web applications.',
       highlights: [
-        'Frontend development contribution',
-        'UI implementation',
-        'Modern frontend engineering practices',
-        'Collaborative development workflow'
+        'Built responsive web interfaces using React and Tailwind CSS',
+        'Collaborated with design and engineering teams to refine layouts'
       ],
-      tech: ['React', 'Frontend Engineering', 'UI Development'],
+      tech: ['React', 'Tailwind CSS', 'UI Development'],
       icon: <Sparkles className="w-5 h-5 text-cyan-400" />
     },
     {
@@ -750,14 +746,12 @@ export default function App() {
       location: 'Virtual',
       period: 'Aug 2025 – Oct 2025',
       current: false,
-      desc: 'Selected for a competitive internship focused on responsive application development and production workflows.',
+      desc: 'Completed a frontend web development internship focused on responsive designs and client applications.',
       highlights: [
-        'Built responsive applications',
-        'Worked on frontend and backend workflows',
-        'Delivered projects under deadlines',
-        'Learned production development practices'
+        'Built responsive layouts using HTML5, CSS3, and JavaScript',
+        'Tested and documented web APIs and user flows'
       ],
-      tech: ['HTML', 'CSS', 'JavaScript', 'Full Stack'],
+      tech: ['HTML', 'CSS', 'JavaScript', 'Web APIs'],
       icon: <Code className="w-5 h-5 text-purple-400" />
     }
   ];
@@ -878,7 +872,7 @@ export default function App() {
           <div className="flex-1 max-w-2xl order-2 md:order-1">
             <div className="overflow-hidden mb-3">
               <h4 className="hero-greeting text-xs md:text-sm font-bold uppercase tracking-widest text-cyan-400 flex items-center gap-2">
-                <Code size={14} /> Web Developer &amp; BCA Scholar
+                <Code size={14} /> BCA Student &amp; Developer
               </h4>
             </div>
 
@@ -887,15 +881,20 @@ export default function App() {
                 <SplitText text="Hi, I'm Aditya Pawar" className="hero-name-chars block text-gray-100" charClassName="hero-name-char" />
               </div>
               <div className="relative mt-2 overflow-hidden py-2">
-                <SplitText text="Crafting Digital Solutions" className="hero-tagline-chars block" charClassName="hero-tagline-char text-gradient" />
+                <SplitText text="I build things for the web" className="hero-tagline-chars block" charClassName="hero-tagline-char text-gradient" />
                 {/* Accent Underline */}
                 <div className="hero-underline absolute bottom-0 left-0 h-[3px] bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500 rounded-full w-full origin-left scale-x-0" />
               </div>
             </h1>
 
-            <p className="hero-desc text-gray-400 text-base md:text-lg mb-10 leading-relaxed text-justify opacity-0">
-              Academic scholar pursuing computer applications at IMR, Jalgaon. Focused on creating user-friendly, dynamic web solutions, and building a professional career in modern web technologies.
+            <p className="hero-desc text-gray-400 text-base md:text-lg mb-4 leading-relaxed text-justify opacity-0">
+              I'm a BCA student at IMR, Jalgaon. I build web applications, explore AI models, and work on frontend and backend projects.
             </p>
+
+            <div className="hero-desc flex items-center gap-2 text-xs text-gray-500 mb-8 opacity-0">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              <span>Currently learning Next.js &amp; fueled by green tea</span>
+            </div>
 
             <div className="hero-ctas-wrapper inline-block w-full">
               <div className="hero-ctas flex flex-col sm:flex-row gap-4 opacity-0">
@@ -944,8 +943,8 @@ export default function App() {
         {/* ================= ABOUT STORY SECTION ================= */}
         <section id="about" className="reveal-section py-20 border-t border-white/5">
           <div className="mb-12">
-            <h2 className="text-xs uppercase tracking-widest text-indigo-400 font-bold mb-2">01 / Story</h2>
-            <h3 className="text-3xl md:text-4xl font-extrabold text-gradient-indigo">My Background</h3>
+            <h2 className="text-xs uppercase tracking-widest text-indigo-400 font-bold mb-2">01 / Profile</h2>
+            <h3 className="text-3xl md:text-4xl font-extrabold text-gradient-indigo">A bit about me</h3>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
@@ -967,8 +966,8 @@ export default function App() {
                   <GraduationCap size={18} className="text-indigo-400" />
                 </div>
                 <div>
-                  <p className="text-[10px] uppercase font-bold text-gray-500 tracking-wider">Degree Pursuing</p>
-                  <p className="font-semibold text-gray-200 text-xs sm:text-sm">BCA (Bachelor of Computer Applications)</p>
+                  <p className="text-[10px] uppercase font-bold text-gray-500 tracking-wider">Education</p>
+                  <p className="font-semibold text-gray-200 text-xs sm:text-sm">BCA Student at IMR</p>
                 </div>
               </div>
             </div>
@@ -977,22 +976,18 @@ export default function App() {
             <div className="lg:col-span-2 space-y-6">
               <div className="glass-panel rounded-2xl p-8 shadow-xl">
                 <h4 className="text-xl font-bold text-gray-100 mb-4 leading-snug">
-                  Aditya Dnyaneshwar Pawar: A Journey of Academic Excellence and Aspiration
+                  BCA Student &amp; Aspiring Full-Stack Developer
                 </h4>
                 <div className="text-gray-400 space-y-4 text-justify leading-relaxed text-sm md:text-base">
                   <p>
-                    I, a native of Jalgaon, Maharashtra, exemplifies the pursuit of knowledge and academic achievement. Born and raised in Jalgaon, my educational journey reflects my dedication and determination to excel in my chosen field.
+                    I'm a computer applications student at IMR, Jalgaon, focused on building practical web applications. What started as basic coding assignments quickly turned into a passion for full-stack web development and exploring AI capabilities.
                   </p>
                   <p>
-                    I began my academic journey at Kendriya Vidyalaya, Jalgaon, where I completed my 10th standard with an impressive score of 79.4%. The strong foundation laid during these formative years set the stage for my future accomplishments. I then moved on to Mooljie Jaitha College, Jalgaon, for my 12th-grade education, where I achieved a remarkable score of 86%. This exceptional performance highlights my commitment to academic excellence and showcases my ability to perform consistently in a competitive environment.
+                    My biggest milestone so far has been building <strong>Campus Hyper Brain</strong>—an AI study tool that parses college syllabi into structured prep guides. Working on this solo project pushed me to learn the Gemini API, handle custom user inputs, and manage a complete product lifecycle. It was incredibly rewarding to see it reach the top 10 nationwide in Google's TechSprint challenge.
                   </p>
                   <p>
-                    Currently, I am pursuing a Bachelor of Computer Applications (BCA) degree at the Institute of Management and Research (IMR), Jalgaon. This program aligns perfectly with my passion for technology and computer applications. I have a keen interest in coding, with a special inclination toward web development. My fascination with creating user-friendly and dynamic web solutions drives my ambition to build a successful career as a web developer.
+                    Currently, I'm gaining hands-on experience through internships at SkillNexis and FlyRank AI, where I work with React, Next.js, and MongoDB. I enjoy solving real problems with clean code and building user-focused tools.
                   </p>
-                  <p>
-                    With a solid academic background, a growing expertise in web development, and a clear vision for the future, I am poised to achieve great success in my endeavors. My journey thus far is a testament to my unwavering dedication to learning, innovation, and self-improvement.
-                  </p>
-
                 </div>
               </div>
             </div>
@@ -1004,10 +999,10 @@ export default function App() {
         {/* ================= SKILLS SECTION ================= */}
         <section id="skills" className="py-20 border-t border-white/5">
           <div className="reveal-section mb-12">
-            <h2 className="text-xs uppercase tracking-widest text-indigo-400 font-bold mb-2">02 / Expertise</h2>
-            <h3 className="text-3xl md:text-4xl font-extrabold text-gradient-indigo">Skills &amp; Tools</h3>
+            <h2 className="text-xs uppercase tracking-widest text-indigo-400 font-bold mb-2">02 / Skills</h2>
+            <h3 className="text-3xl md:text-4xl font-extrabold text-gradient-indigo">Technologies I use</h3>
             <p className="text-gray-400 mt-2 max-w-2xl leading-relaxed text-sm">
-              Interactive categorization of technologies, libraries, and design workflows matching my developer path.
+              A list of tools, programming languages, and frameworks I've worked with in my projects and internships.
             </p>
           </div>
 
@@ -1098,10 +1093,10 @@ export default function App() {
         {/* ================= EXPERIENCE TIMELINE ================= */}
         <section id="experience" className="reveal-section py-20 border-t border-white/5">
           <div className="mb-12">
-            <h2 className="text-xs uppercase tracking-widest text-indigo-400 font-bold mb-2">03 / Experience</h2>
-            <h3 className="text-3xl md:text-4xl font-extrabold text-gradient-indigo">Career Path</h3>
+            <h2 className="text-xs uppercase tracking-widest text-indigo-400 font-bold mb-2">03 / Internships</h2>
+            <h3 className="text-3xl md:text-4xl font-extrabold text-gradient-indigo">Where I've worked</h3>
             <p className="text-gray-400 mt-2 max-w-2xl leading-relaxed text-sm">
-              Professional development in software engineering and web application cycles.
+              Hands-on developer internships where I helped build user interfaces and API integrations.
             </p>
           </div>
 
@@ -1186,36 +1181,37 @@ export default function App() {
             <h2 className="text-xs uppercase tracking-widest text-indigo-400 font-bold mb-2">04 / Education</h2>
             <h3 className="text-3xl md:text-4xl font-extrabold text-gradient-indigo">Academic Path</h3>
             <p className="text-gray-400 mt-2 max-w-2xl leading-relaxed text-sm">
-              Strong conceptual foundations built through premier institutions, maintaining consistent academic grades.
+              My current and previous academic credentials.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
             {/* BCA */}
             <motion.div
               whileHover={{ y: -6 }}
-              className="glass-panel rounded-2xl p-6 flex flex-col justify-between hover:border-indigo-500/20 hover:shadow-indigo-500/5 transition-all duration-300"
+              className="glass-panel rounded-2xl p-6 flex flex-col justify-between hover:border-indigo-500/20 hover:shadow-indigo-500/5 transition-all duration-300 md:col-span-2 lg:col-span-2"
             >
               <div>
                 <div className="flex justify-between items-start gap-4 mb-4">
                   <div>
                     <h4 className="text-lg font-bold text-gray-100">BCA (Bachelor of Computer Applications)</h4>
-                    <p className="text-indigo-400 text-xs font-medium mt-1">Institute of Management And Research, Jalgaon</p>
+                    <p className="text-indigo-400 text-sm font-medium mt-1">Institute of Management And Research, Jalgaon</p>
                   </div>
-                </div>
-                <div className="mt-2 text-xs text-gray-400">
-                  <span className="px-2 py-0.5 font-bold bg-indigo-500/10 border border-indigo-500/25 rounded-full text-indigo-400">
-                    2024 - 25
+                  <span className="px-2.5 py-1 text-xs font-bold bg-indigo-500/10 border border-indigo-500/25 rounded-full text-indigo-400 whitespace-nowrap">
+                    2024 - Present
                   </span>
                 </div>
+                <p className="text-xs text-gray-400 leading-relaxed mt-4">
+                  Studying database management systems, data structures, object-oriented programming, and web development fundamentals.
+                </p>
               </div>
               <div className="mt-8 pt-4 border-t border-white/5">
                 <div className="flex justify-between text-xs text-gray-400 mb-2">
-                  <span>Performance Scale</span>
-                  <span className="font-semibold text-cyan-400">Pursuing</span>
+                  <span>Current Status</span>
+                  <span className="font-semibold text-cyan-400">Ongoing</span>
                 </div>
-                <div className="w-full h-2 rounded-full bg-white/5 overflow-hidden">
+                <div className="w-full h-1.5 rounded-full bg-white/5 overflow-hidden">
                   <div
                     className="edu-fill-meter h-full bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-full"
                     data-value="100%"
@@ -1227,7 +1223,7 @@ export default function App() {
             {/* HSC */}
             <motion.div
               whileHover={{ y: -6 }}
-              className="glass-panel rounded-2xl p-6 flex flex-col justify-between hover:border-indigo-500/20 hover:shadow-indigo-500/5 transition-all duration-300"
+              className="glass-panel rounded-2xl p-6 flex flex-col justify-between hover:border-indigo-500/20 hover:shadow-indigo-500/5 transition-all duration-300 md:col-span-1 lg:col-span-1"
             >
               <div>
                 <div className="flex justify-between items-start gap-2 mb-4">
@@ -1238,13 +1234,13 @@ export default function App() {
                 </div>
                 <div className="mt-2 text-xs text-gray-400">
                   <span className="px-2 py-0.5 font-bold bg-purple-500/10 border border-purple-500/25 rounded-full text-purple-400 whitespace-nowrap">
-                    2023 - 24
+                    2023 - 2024
                   </span>
                 </div>
               </div>
               <div className="mt-8 pt-4 border-t border-white/5">
                 <div className="flex justify-between text-xs text-gray-400 mb-2">
-                  <span>Score: 516 / 600</span>
+                  <span>Final Score</span>
                   <span className="font-bold text-purple-400">86.0%</span>
                 </div>
                 <div className="w-full h-1.5 rounded-full bg-white/5 overflow-hidden">
@@ -1259,24 +1255,24 @@ export default function App() {
             {/* SSC */}
             <motion.div
               whileHover={{ y: -6 }}
-              className="glass-panel rounded-2xl p-6 flex flex-col justify-between hover:border-indigo-500/20 hover:shadow-indigo-500/5 transition-all duration-300"
+              className="glass-panel rounded-2xl p-6 flex flex-col justify-between hover:border-indigo-500/20 hover:shadow-indigo-500/5 transition-all duration-300 md:col-span-2 lg:col-span-1"
             >
               <div>
                 <div className="flex justify-between items-start gap-2 mb-4">
                   <div>
                     <h4 className="text-lg font-bold text-gray-100">SSC (10th Grade)</h4>
-                    <p className="text-cyan-400 text-xs font-medium mt-1">Kendriya Vidyalaya NMU Jalgaon</p>
+                    <p className="text-cyan-400 text-xs font-medium mt-1">Kendriya Vidyalaya, Jalgaon</p>
                   </div>
                 </div>
                 <div className="mt-2 text-xs text-gray-400">
                   <span className="px-2 py-0.5 font-bold bg-cyan-500/10 border border-cyan-500/25 rounded-full text-cyan-400 whitespace-nowrap">
-                    2021 - 22
+                    2021 - 2022
                   </span>
                 </div>
               </div>
               <div className="mt-8 pt-4 border-t border-white/5">
                 <div className="flex justify-between text-xs text-gray-400 mb-2">
-                  <span>Score: 397 / 500</span>
+                  <span>Final Score</span>
                   <span className="font-bold text-cyan-400">79.4%</span>
                 </div>
                 <div className="w-full h-1.5 rounded-full bg-white/5 overflow-hidden">
@@ -1295,9 +1291,9 @@ export default function App() {
         <section id="projects" className="py-20 border-t border-white/5">
           <div className="reveal-section mb-12">
             <h2 className="text-xs uppercase tracking-widest text-indigo-400 font-bold mb-2">05 / Projects</h2>
-            <h3 className="text-3xl md:text-4xl font-extrabold text-gradient-indigo">Featured Creations</h3>
+            <h3 className="text-3xl md:text-4xl font-extrabold text-gradient-indigo">Projects I've built</h3>
             <p className="text-gray-400 mt-2 max-w-2xl leading-relaxed text-sm">
-              Chronological list of built web architectures, AI platforms, and web utility interfaces.
+              A collection of web apps I built to practice different frontend and backend technologies.
             </p>
           </div>
 
@@ -1422,10 +1418,10 @@ export default function App() {
         {/* ================= ACHIEVEMENTS & HACKATHONS SECTION ================= */}
         <section id="achievements" className="py-20 border-t border-white/5">
           <div className="reveal-section mb-12">
-            <h2 className="text-xs uppercase tracking-widest text-indigo-400 font-bold mb-2">06 / Milestones</h2>
+            <h2 className="text-xs uppercase tracking-widest text-indigo-400 font-bold mb-2">06 / Highlights</h2>
             <h3 className="text-3xl md:text-4xl font-extrabold text-gradient-indigo">Achievements &amp; Hackathons</h3>
             <p className="text-gray-400 mt-2 max-w-2xl leading-relaxed text-sm">
-              Recognitions and competitive landmarks from developer hackathons, technical assessments, and Google Developer challenges.
+              Events and milestones I've participated in outside of college classes.
             </p>
           </div>
 
@@ -1455,7 +1451,7 @@ export default function App() {
                     </p>
 
                     <p className="text-gray-400 text-sm leading-relaxed text-justify">
-                      Competed against hundreds of teams nationwide as a solo developer with the project <strong>Campus Hyper Brain</strong>. Engineered an AI-driven SaaS platform that parses college syllabi to generate customized study aids and interactive training environments. Achieved a placement in the top 10 nationwide out of hundreds of entries.
+                      Built the <strong>Campus Hyper Brain</strong> study platform as a solo developer and placed in the top 10 nationwide in Google's TechSprint hackathon. Designed the tool to automatically parse university syllabi and generate customized study aids using Gemini API models.
                     </p>
 
                     <div className="flex flex-wrap gap-2 pt-2">
@@ -1541,7 +1537,7 @@ export default function App() {
                     <h4 className="text-lg font-bold text-gray-200">Explore &amp; Evolve Hackathon</h4>
                     <p className="text-xs text-indigo-400 font-semibold mt-1">Lead Presenter</p>
                     <p className="text-xs text-gray-400 mt-3 leading-relaxed text-justify">
-                      Served as the lead presenter for team CodeStrix, pitching our product solution to a panel of expert judges and securing a finalist spot.
+                      Lead presenter for team CodeStrix, pitching our project to a panel of judges and securing a finalist spot in the hackathon.
                     </p>
                   </div>
                   <div className="flex items-center justify-between gap-2 mt-6 pt-3 border-t border-white/5">
@@ -1582,7 +1578,7 @@ export default function App() {
                     <h4 className="text-lg font-bold text-gray-200">AINCAT 2025</h4>
                     <p className="text-xs text-cyan-400 font-semibold mt-1">Academic &amp; Tech Aptitude</p>
                     <p className="text-xs text-gray-400 mt-3 leading-relaxed text-justify">
-                      Successfully cleared the AINCAT technical assessment, demonstrating problem-solving capabilities and basic computing concepts.
+                      Passed the AINCAT technical assessment, demonstrating analytical skills and understanding of core computer science fundamentals.
                     </p>
                   </div>
                   <div className="flex items-center justify-between gap-2 mt-6 pt-3 border-t border-white/5">
@@ -1620,7 +1616,7 @@ export default function App() {
                     <h4 className="text-lg font-bold text-gray-200">Young Turks 2025</h4>
                     <p className="text-xs text-emerald-400 font-semibold mt-1">Emerging Developer Talent</p>
                     <p className="text-xs text-gray-400 mt-3 leading-relaxed text-justify">
-                      Selected for the Young Turks developer cohort recognizing promising software engineering talent among collegiate candidates.
+                      Selected for the developer cohort recognizing software engineering potential and coding talent among college students.
                     </p>
                   </div>
                   <div className="flex items-center justify-between gap-2 mt-6 pt-3 border-t border-white/5">
@@ -1653,10 +1649,10 @@ export default function App() {
         {/* ================= CERTIFICATIONS SECTION ================= */}
         <section id="certifications" className="py-20 border-t border-white/5">
           <div className="reveal-section mb-12">
-            <h2 className="text-xs uppercase tracking-widest text-indigo-400 font-bold mb-2">07 / Credentials</h2>
+            <h2 className="text-xs uppercase tracking-widest text-indigo-400 font-bold mb-2">07 / Certificates</h2>
             <h3 className="text-3xl md:text-4xl font-extrabold text-gradient-indigo">Certifications</h3>
             <p className="text-gray-400 mt-2 max-w-2xl leading-relaxed text-sm">
-              Industry and corporate tech simulations highlighting specialized technical training.
+              Coursework and simulations I've completed to learn new technologies.
             </p>
           </div>
 
@@ -1666,7 +1662,7 @@ export default function App() {
                 title: 'Technology Job Simulation',
                 org: 'Deloitte',
                 badge: <Briefcase className="w-6 h-6 text-purple-400" />,
-                desc: 'Completed Deloitte Technology job simulation focusing on software engineering, cloud architecture, and cybersecurity tasks.',
+                desc: 'Completed simulated tasks in software engineering, cloud configurations, and security audits.',
                 verifyUrl: 'https://www.theforage.com/simulations/deloitte-global/technology-gcgo',
                 certUrl: '/certificates/deloitte-job-simulation.jpg'
               },
@@ -1674,7 +1670,7 @@ export default function App() {
                 title: 'Cybersecurity Analyst Job Simulation',
                 org: 'Tata Group',
                 badge: <Award className="w-6 h-6 text-indigo-400" />,
-                desc: 'Simulated cybersecurity analyst operations, performing security audits and malware analysis tasks.',
+                desc: 'Completed simulated security analyst exercises, reviewing configurations and tracking security incidents.',
                 verifyUrl: 'https://www.theforage.com/simulations/tata/cybersecurity-analyst-otwo',
                 certUrl: '/certificates/cyber_security_certificate-1.jpg'
               },
@@ -1682,7 +1678,7 @@ export default function App() {
                 title: 'Frontend Web Development',
                 org: 'Reliance Foundation',
                 badge: <Layers className="w-6 h-6 text-cyan-400" />,
-                desc: 'Comprehensive training in modern web layout, CSS engines, JavaScript operations, and user interface architectures.',
+                desc: 'Completed frontend training focusing on HTML/CSS structure, responsive design, and DOM manipulation.',
                 verifyUrl: '#',
                 certUrl: '/certificates/front-end-reliance.jpg'
               },
@@ -1690,7 +1686,7 @@ export default function App() {
                 title: 'JavaScript Programming',
                 org: 'Infosys Springboard',
                 badge: <Code className="w-6 h-6 text-emerald-400" />,
-                desc: 'Mastered standard JavaScript programming patterns, prototype scope, async models, and functional design patterns.',
+                desc: 'Completed coursework covering standard JavaScript scopes, asynchronous execution, and basic API requests.',
                 verifyUrl: '#',
                 certUrl: '/certificates/javascript-infosys-1.jpg'
               }
@@ -1753,9 +1749,9 @@ export default function App() {
         <section id="contact" className="reveal-section py-20 border-t border-white/5">
           <div className="mb-12">
             <h2 className="text-xs uppercase tracking-widest text-indigo-400 font-bold mb-2">08 / Contact</h2>
-            <h3 className="text-3xl md:text-4xl font-extrabold text-gradient-indigo">Connect</h3>
+            <h3 className="text-3xl md:text-4xl font-extrabold text-gradient-indigo">Get in touch</h3>
             <p className="text-gray-400 mt-2 max-w-2xl leading-relaxed text-sm">
-              Got a project or inquiry? Fill out the interactive messenger panel or reach out directly.
+              Have a question or want to work together? Drop a message below or send me an email.
             </p>
           </div>
 
@@ -1873,9 +1869,9 @@ export default function App() {
                         </div>
                       </div>
                       <div className="space-y-2">
-                        <h4 className="text-2xl font-extrabold text-gradient">Message Received!</h4>
+                        <h4 className="text-2xl font-extrabold text-gradient">Message sent!</h4>
                         <p className="text-gray-400 text-sm max-w-sm mx-auto">
-                          Thank you for reaching out, Aditya. I will review your inquiry and get back to you as soon as possible.
+                          Thanks for reaching out! I'll read your message and get back to you as soon as I can.
                         </p>
                       </div>
                       <button
