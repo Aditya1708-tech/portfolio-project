@@ -935,9 +935,6 @@ export default function App() {
                 alt="Aditya Dnyaneshwar Pawar"
                 className="w-full h-full object-contain object-bottom transition-transform duration-700 hover:scale-[1.03] z-10 relative"
               />
-              <div className="absolute bottom-3 right-3 bg-indigo-500/90 p-2 rounded-lg text-white z-20 backdrop-blur-sm shadow-md">
-                <Sparkles size={16} />
-              </div>
             </div>
           </div>
 
