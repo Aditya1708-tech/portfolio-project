@@ -24,7 +24,9 @@ import {
   Hourglass,
   Trophy,
   Medal,
-  Target
+  Target,
+  Eye,
+  Download
 } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -199,6 +201,18 @@ export default function App() {
   // State variables
   const [activeSection, setActiveSection] = useState('home');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // Certificate viewer modal state
+  const [activeCertificate, setActiveCertificate] = useState<{
+    title: string;
+    orgOrEvent: string;
+    assets: Array<{
+      title: string;
+      url: string;
+      type: 'image' | 'pdf';
+    }>;
+    currentIndex: number;
+  } | null>(null);
 
   // Contact form state
   const [formData, setFormData] = useState({ name: '', email: '', mobile: '', message: '' });
@@ -1454,6 +1468,25 @@ export default function App() {
                         </span>
                       ))}
                     </div>
+
+                    <div className="pt-2">
+                      <button
+                        onClick={() => setActiveCertificate({
+                          title: 'Build with Google TechSprint',
+                          orgOrEvent: 'Google Developer Challenge',
+                          assets: [
+                            { title: 'Finalist Certificate', url: '/certificates/Build With Google/top 10 certificate.jpg', type: 'image' },
+                            { title: 'Finalist Certificate (PDF)', url: '/certificates/Build With Google/top 10 certificate.pdf', type: 'pdf' },
+                            { title: 'Team Showcase', url: '/certificates/Build With Google/top 10 teams.jpeg', type: 'image' }
+                          ],
+                          currentIndex: 0
+                        })}
+                        className="flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-amber-300 hover:text-amber-200 border border-amber-500/20 hover:border-amber-500/50 bg-amber-500/5 hover:bg-amber-500/10 hover:shadow-[0_0_15px_rgba(245,158,11,0.2)] transition-all duration-300 cursor-pointer"
+                      >
+                        <Eye size={14} />
+                        View Certificates
+                      </button>
+                    </div>
                   </div>
 
                   <div className="flex-shrink-0 p-4 bg-amber-500/10 rounded-2xl border border-amber-500/20 text-amber-400 self-start md:self-center">
@@ -1514,8 +1547,27 @@ export default function App() {
                       Served as the lead presenter for team CodeStrix, pitching our product solution to a panel of expert judges and securing a finalist spot.
                     </p>
                   </div>
-                  <div className="flex items-center gap-1.5 text-[10px] font-bold text-gray-400 mt-6 pt-3 border-t border-white/5">
-                    <Target size={12} className="text-indigo-400" /> Pitch &amp; Presentation focus
+                  <div className="flex items-center justify-between gap-2 mt-6 pt-3 border-t border-white/5">
+                    <div className="flex items-center gap-1.5 text-[10px] font-bold text-gray-400">
+                      <Target size={12} className="text-indigo-400" /> Pitch &amp; Presentation
+                    </div>
+                    <button
+                      onClick={() => setActiveCertificate({
+                        title: 'Explore & Evolve Hackathon',
+                        orgOrEvent: 'IEEE CS CU & Christ University',
+                        assets: [
+                          { title: 'Presentation Certificate', url: '/certificates/IEEE/ieee certificate.jpg', type: 'image' },
+                          { title: 'Participation Certificate', url: '/certificates/IEEE/44.png', type: 'image' },
+                          { title: 'Appreciation Certificate', url: '/certificates/IEEE/ieee.jpg', type: 'image' },
+                          { title: 'Hackathon Badge', url: '/certificates/IEEE/ieee badge.jpg', type: 'image' }
+                        ],
+                        currentIndex: 0
+                      })}
+                      className="px-2.5 py-1.5 text-[10px] font-bold uppercase tracking-wider rounded-lg border border-indigo-500/20 bg-indigo-500/5 hover:bg-indigo-500/10 hover:border-indigo-500/40 text-indigo-400 transition-all duration-200 cursor-pointer flex items-center gap-1"
+                    >
+                      <Eye size={12} />
+                      View
+                    </button>
                   </div>
                 </div>
               </Tilt>
@@ -1536,8 +1588,24 @@ export default function App() {
                       Successfully cleared the AINCAT technical assessment, demonstrating problem-solving capabilities and basic computing concepts.
                     </p>
                   </div>
-                  <div className="flex items-center gap-1.5 text-[10px] font-bold text-gray-400 mt-6 pt-3 border-t border-white/5">
-                    <Target size={12} className="text-cyan-400" /> Score verified
+                  <div className="flex items-center justify-between gap-2 mt-6 pt-3 border-t border-white/5">
+                    <div className="flex items-center gap-1.5 text-[10px] font-bold text-gray-400">
+                      <Target size={12} className="text-cyan-400" /> Score verified
+                    </div>
+                    <button
+                      onClick={() => setActiveCertificate({
+                        title: 'AINCAT 2025 Assessment',
+                        orgOrEvent: 'AINCAT',
+                        assets: [
+                          { title: 'Score Card & Certificate', url: '/certificates/aincat_page-0001.jpg', type: 'image' }
+                        ],
+                        currentIndex: 0
+                      })}
+                      className="px-2.5 py-1.5 text-[10px] font-bold uppercase tracking-wider rounded-lg border border-cyan-500/20 bg-cyan-500/5 hover:bg-cyan-500/10 hover:border-cyan-500/40 text-cyan-400 transition-all duration-200 cursor-pointer flex items-center gap-1"
+                    >
+                      <Eye size={12} />
+                      View
+                    </button>
                   </div>
                 </div>
               </Tilt>
@@ -1558,8 +1626,24 @@ export default function App() {
                       Selected for the Young Turks developer cohort recognizing promising software engineering talent among collegiate candidates.
                     </p>
                   </div>
-                  <div className="flex items-center gap-1.5 text-[10px] font-bold text-gray-400 mt-6 pt-3 border-t border-white/5">
-                    <Target size={12} className="text-emerald-400" /> Young Talent cohort
+                  <div className="flex items-center justify-between gap-2 mt-6 pt-3 border-t border-white/5">
+                    <div className="flex items-center gap-1.5 text-[10px] font-bold text-gray-400">
+                      <Target size={12} className="text-emerald-400" /> Young Talent cohort
+                    </div>
+                    <button
+                      onClick={() => setActiveCertificate({
+                        title: 'Young Turks 2025 Cohort',
+                        orgOrEvent: 'Young Turks Program',
+                        assets: [
+                          { title: 'Cohort Recognition', url: '/certificates/young turks_page-0001.jpg', type: 'image' }
+                        ],
+                        currentIndex: 0
+                      })}
+                      className="px-2.5 py-1.5 text-[10px] font-bold uppercase tracking-wider rounded-lg border border-emerald-500/20 bg-emerald-500/5 hover:bg-emerald-500/10 hover:border-emerald-500/40 text-emerald-400 transition-all duration-200 cursor-pointer flex items-center gap-1"
+                    >
+                      <Eye size={12} />
+                      View
+                    </button>
                   </div>
                 </div>
               </Tilt>
@@ -1586,28 +1670,32 @@ export default function App() {
                 org: 'Deloitte',
                 badge: <Briefcase className="w-6 h-6 text-purple-400" />,
                 desc: 'Completed Deloitte Technology job simulation focusing on software engineering, cloud architecture, and cybersecurity tasks.',
-                verifyUrl: 'https://www.theforage.com/'
+                verifyUrl: 'https://www.theforage.com/simulations/deloitte-global/technology-gcgo',
+                certUrl: '/certificates/deloitte-job-simulation.jpg'
               },
               {
                 title: 'Cybersecurity Analyst Job Simulation',
                 org: 'Tata Group',
                 badge: <Award className="w-6 h-6 text-indigo-400" />,
                 desc: 'Simulated cybersecurity analyst operations, performing security audits and malware analysis tasks.',
-                verifyUrl: 'https://www.theforage.com/'
+                verifyUrl: 'https://www.theforage.com/simulations/tata/cybersecurity-analyst-otwo',
+                certUrl: '/certificates/cyber_security_certificate-1.jpg'
               },
               {
                 title: 'Frontend Web Development',
                 org: 'Reliance Foundation',
                 badge: <Layers className="w-6 h-6 text-cyan-400" />,
                 desc: 'Comprehensive training in modern web layout, CSS engines, JavaScript operations, and user interface architectures.',
-                verifyUrl: '#'
+                verifyUrl: '#',
+                certUrl: '/certificates/front-end-reliance.jpg'
               },
               {
                 title: 'JavaScript Programming',
                 org: 'Infosys Springboard',
                 badge: <Code className="w-6 h-6 text-emerald-400" />,
                 desc: 'Mastered standard JavaScript programming patterns, prototype scope, async models, and functional design patterns.',
-                verifyUrl: '#'
+                verifyUrl: '#',
+                certUrl: '/certificates/javascript-infosys-1.jpg'
               }
             ].map((cert, cIdx) => (
               <Tilt key={cIdx}>
@@ -1634,15 +1722,29 @@ export default function App() {
                     </div>
                   </div>
 
-                  <div className="mt-6 pt-4 border-t border-white/5 flex justify-end">
-                    <a
-                      href={cert.verifyUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-4 py-2 text-xs font-semibold uppercase tracking-wider rounded-lg border border-indigo-500/20 bg-indigo-500/5 hover:bg-indigo-500/10 hover:border-indigo-500/40 text-indigo-400 transition-all duration-200 cursor-pointer"
+                  <div className="mt-6 pt-4 border-t border-white/5 flex justify-end gap-3">
+                    <button
+                      onClick={() => setActiveCertificate({
+                        title: cert.title,
+                        orgOrEvent: cert.org,
+                        assets: [{ title: 'Certificate', url: cert.certUrl, type: 'image' }],
+                        currentIndex: 0
+                      })}
+                      className="px-4 py-2 text-xs font-semibold uppercase tracking-wider rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 text-gray-300 transition-all duration-200 cursor-pointer flex items-center gap-1.5"
                     >
-                      Verify Certificate
-                    </a>
+                      <Eye size={12} />
+                      View
+                    </button>
+                    {cert.verifyUrl !== '#' && (
+                      <a
+                        href={cert.verifyUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-4 py-2 text-xs font-semibold uppercase tracking-wider rounded-lg border border-indigo-500/20 bg-indigo-500/5 hover:bg-indigo-500/10 hover:border-indigo-500/40 text-indigo-400 transition-all duration-200 cursor-pointer"
+                      >
+                        Verify
+                      </a>
+                    )}
                   </div>
                 </div>
               </Tilt>
@@ -1805,6 +1907,114 @@ export default function App() {
           </span>
         </div>
       </footer>
+
+      {/* Certificate Lightbox Viewer Modal */}
+      <AnimatePresence>
+        {activeCertificate && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[9999] flex items-center justify-center p-4 md:p-6 bg-[#030712]/90 backdrop-blur-md"
+            onClick={() => setActiveCertificate(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.95, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.95, y: 20 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+              className="relative w-full max-w-4xl max-h-[90vh] glass-panel rounded-3xl p-4 md:p-6 bg-[#0b0f19]/80 border border-white/10 flex flex-col gap-4 shadow-2xl overflow-hidden"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Header */}
+              <div className="flex items-center justify-between border-b border-white/5 pb-3">
+                <div>
+                  <h4 className="text-base md:text-lg font-extrabold text-gray-100 flex items-center gap-2">
+                    <Award className="text-indigo-400 w-5 h-5" />
+                    {activeCertificate.title}
+                  </h4>
+                  <p className="text-xs text-gray-400 font-semibold">{activeCertificate.orgOrEvent}</p>
+                </div>
+                <button
+                  onClick={() => setActiveCertificate(null)}
+                  className="p-2 rounded-xl bg-white/5 border border-white/5 text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
+                >
+                  <X size={18} />
+                </button>
+              </div>
+
+              {/* Multi-asset tabs (if more than 1 asset) */}
+              {activeCertificate.assets.length > 1 && (
+                <div className="flex flex-wrap gap-2 pb-2">
+                  {activeCertificate.assets.map((asset, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setActiveCertificate({
+                        ...activeCertificate,
+                        currentIndex: idx
+                      })}
+                      className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all border ${
+                        activeCertificate.currentIndex === idx
+                          ? 'bg-indigo-600/20 border-indigo-500/50 text-indigo-400 shadow-md'
+                          : 'bg-white/5 border-white/5 text-gray-400 hover:text-gray-200 hover:bg-white/10'
+                      }`}
+                    >
+                      {asset.title}
+                    </button>
+                  ))}
+                </div>
+              )}
+
+              {/* Viewer Area */}
+              <div className="flex-1 flex items-center justify-center bg-black/40 rounded-2xl overflow-y-auto border border-white/5 min-h-[300px] max-h-[60vh] p-2 relative group/viewer">
+                {activeCertificate.assets[activeCertificate.currentIndex].type === 'image' ? (
+                  <img
+                    src={activeCertificate.assets[activeCertificate.currentIndex].url}
+                    alt={activeCertificate.assets[activeCertificate.currentIndex].title}
+                    className="max-w-full max-h-[58vh] object-contain rounded-xl shadow-xl transition-all duration-300"
+                  />
+                ) : (
+                  <div className="flex flex-col items-center justify-center p-8 text-center space-y-4 w-full">
+                    <div className="p-4 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400">
+                      <GraduationCap size={48} />
+                    </div>
+                    <div>
+                      <p className="text-sm font-bold text-gray-200">PDF Document Available</p>
+                      <p className="text-xs text-gray-400 max-w-sm mt-1">This certification is provided as an official PDF document.</p>
+                    </div>
+                    <a
+                      href={activeCertificate.assets[activeCertificate.currentIndex].url}
+                      download
+                      className="px-5 py-2.5 rounded-xl text-xs font-bold text-indigo-400 hover:text-indigo-300 border border-indigo-500/20 hover:border-indigo-500/50 bg-indigo-500/5 hover:bg-indigo-500/10 transition-all flex items-center gap-2 cursor-pointer"
+                    >
+                      <Download size={14} />
+                      Download PDF
+                    </a>
+                  </div>
+                )}
+              </div>
+
+              {/* Action Bar (Download current asset) */}
+              <div className="flex items-center justify-between border-t border-white/5 pt-3">
+                <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">
+                  Asset {activeCertificate.currentIndex + 1} of {activeCertificate.assets.length}
+                </span>
+                
+                {activeCertificate.assets[activeCertificate.currentIndex].type === 'image' && (
+                  <a
+                    href={activeCertificate.assets[activeCertificate.currentIndex].url}
+                    download={`${activeCertificate.title.replace(/\s+/g, '_')}_${activeCertificate.assets[activeCertificate.currentIndex].title.replace(/\s+/g, '_')}`}
+                    className="px-4 py-2 rounded-xl text-xs font-bold bg-gradient-to-r from-indigo-600 to-cyan-600 hover:shadow-lg hover:shadow-indigo-500/20 text-white flex items-center gap-1.5 transition-all cursor-pointer"
+                  >
+                    <Download size={14} />
+                    Download File
+                  </a>
+                )}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
     </div>
   );
