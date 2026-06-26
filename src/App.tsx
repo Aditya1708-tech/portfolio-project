@@ -566,6 +566,7 @@ export default function App() {
       title: 'Campus Hyper Brain',
       subtitle: 'Solo Developer | Google TechSprint Finalist',
       desc: 'An AI study platform that converts college syllabi into structured study guides. Built a custom AI tutor interface using the Gemini API to help students test themselves on specific topics.',
+      mobileDesc: 'AI study platform converting syllabi into guides with a Gemini API tutor interface.',
       tech: ['React', 'Gemini API', 'Tailwind CSS', 'TypeScript'],
       github: 'https://github.com/Aditya1708-tech/campus-hyper-brain',
       live: null,
@@ -602,6 +603,7 @@ export default function App() {
       title: 'BiteXpress',
       subtitle: '',
       desc: 'A food delivery platform supporting multiple restaurants. Built a dynamic cart system, coupon validation rules, and simulated checkout flow.',
+      mobileDesc: 'Food delivery platform with a dynamic cart, coupon validation, and simulated checkout.',
       tech: ['React', 'JavaScript', 'REST APIs', 'CSS3'],
       github: 'https://github.com/Aditya1708-tech/BiteXpress',
       live: 'https://aditya1708-tech.github.io/BiteXpress/',
@@ -638,6 +640,7 @@ export default function App() {
       title: 'To-Do List App',
       subtitle: '',
       desc: 'A simple productivity dashboard. Focused on clean semantic HTML and responsive layouts, deployed on Vercel.',
+      mobileDesc: 'Simple productivity task dashboard with responsive layouts hosted on Vercel.',
       tech: ['HTML5', 'CSS3', 'JavaScript', 'Vercel'],
       github: 'https://github.com/Aditya1708-tech/To-Do-List',
       live: 'https://to-do-list-seven-gules-74.vercel.app/',
@@ -664,45 +667,6 @@ export default function App() {
           </div>
         </div>
       )
-    },
-    {
-      id: 'calculator',
-      featured: false,
-      status: 'Completed',
-      statusType: 'completed',
-      title: 'Calculator App',
-      subtitle: '',
-      desc: 'A responsive glassmorphic calculator supporting full arithmetic operations and keyboard input shortcuts.',
-      tech: ['HTML5', 'CSS3', 'JavaScript'],
-      github: 'https://github.com/Aditya1708-tech/Calculator-New',
-      live: 'https://aditya1708-tech.github.io/Calculator-New/',
-      mockup: (
-        <div className="bg-[#0b0f19] border border-white/5 rounded-2xl p-4 h-48 flex flex-col justify-between overflow-hidden shadow-xl text-xs">
-          <div className="flex justify-between items-center text-[10px] text-gray-500 border-b border-white/5 pb-2">
-            <span>Standard Calculator</span>
-            <span className="text-purple-400 font-bold">Active</span>
-          </div>
-
-          <div className="text-right py-2 bg-white/5 rounded px-2 border border-white/5 font-mono w-full">
-            <div className="text-[10px] text-gray-500">12.5 * 8</div>
-            <div className="text-sm font-bold text-gray-200">100</div>
-          </div>
-
-          <div className="grid grid-cols-4 gap-1.5 text-center font-bold text-[10px] text-gray-400 w-full mt-2">
-            <div className="p-1 rounded bg-white/5 border border-white/5 text-purple-400">C</div>
-            <div className="p-1 rounded bg-white/5 border border-white/5">/</div>
-            <div className="p-1 rounded bg-white/5 border border-white/5">*</div>
-            <div className="p-1 rounded bg-white/5 border border-white/5">-</div>
-            <div className="p-1 rounded bg-white/5 border border-white/5">7</div>
-            <div className="p-1 rounded bg-white/5 border border-white/5">8</div>
-            <div className="p-1 rounded bg-white/5 border border-white/5">9</div>
-            <div className="p-1 rounded bg-indigo-600 text-white font-extrabold row-span-2 flex items-center justify-center">+</div>
-            <div className="p-1 rounded bg-white/5 border border-white/5">4</div>
-            <div className="p-1 rounded bg-white/5 border border-white/5">5</div>
-            <div className="p-1 rounded bg-white/5 border border-white/5">6</div>
-          </div>
-        </div>
-      )
     }
   ];
 
@@ -716,6 +680,7 @@ export default function App() {
       period: 'Jun 2026 – Present',
       current: true,
       desc: 'Building full-stack web applications using React, Next.js, Node.js, and MongoDB during my developer internship.',
+      mobileDesc: 'Building full-stack web applications using React, Next.js, Node.js, and MongoDB.',
       highlights: [
         'Developed scalable components and user interfaces using React and Next.js',
         'Integrated REST APIs and worked with MongoDB schemas',
@@ -732,6 +697,7 @@ export default function App() {
       period: 'Jun 2026 – Present',
       current: true,
       desc: 'Contributing to frontend workflows and user interface development for AI web applications.',
+      mobileDesc: 'Contributing to frontend UI development for AI web applications.',
       highlights: [
         'Built responsive web interfaces using React and Tailwind CSS',
         'Collaborated with design and engineering teams to refine layouts'
@@ -747,6 +713,7 @@ export default function App() {
       period: 'Aug 2025 – Oct 2025',
       current: false,
       desc: 'Completed a frontend web development internship focused on responsive designs and client applications.',
+      mobileDesc: 'Completed a frontend web development internship focusing on responsive client applications.',
       highlights: [
         'Built responsive layouts using HTML5, CSS3, and JavaScript',
         'Tested and documented web APIs and user flows'
@@ -887,13 +854,17 @@ export default function App() {
               </div>
             </h1>
 
-            <p className="hero-desc text-gray-400 text-base md:text-lg mb-4 leading-relaxed text-justify opacity-0">
+            <p className="hero-desc hidden md:block text-gray-400 text-base md:text-lg mb-4 leading-relaxed text-justify opacity-0">
               I'm a BCA student at IMR, Jalgaon. I build web applications, explore AI models, and work on frontend and backend projects.
+            </p>
+            <p className="hero-desc block md:hidden text-gray-400 text-sm mb-4 leading-relaxed text-justify opacity-0">
+              BCA Student building web apps &amp; exploring AI models.
             </p>
 
             <div className="hero-desc flex items-center gap-2 text-xs text-gray-500 mb-8 opacity-0">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              <span>Currently learning Next.js &amp; fueled by green tea</span>
+              <span className="hidden md:inline">Currently learning Next.js &amp; fueled by green tea</span>
+              <span className="inline md:hidden">Learning Next.js</span>
             </div>
 
             <div className="hero-ctas-wrapper inline-block w-full">
@@ -922,17 +893,11 @@ export default function App() {
 
           {/* Image (Right Column) */}
           <div className="hero-avatar-card flex justify-center md:justify-end order-1 md:order-2 flex-shrink-0 relative">
-            {/* Soft Ambient Outer Glow behind the card */}
-            <div className="absolute -inset-6 bg-gradient-to-tr from-indigo-500/20 to-cyan-500/20 rounded-full blur-3xl opacity-60 z-0 pointer-events-none" />
-
-            <div className="relative w-72 h-72 md:w-[330px] md:h-[330px] overflow-hidden rounded-3xl glass-panel border border-white/10 z-10">
-              {/* Premium Glow Aura Behind Image inside the card */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/10 via-purple-500/5 to-cyan-500/10 opacity-60 z-0 pointer-events-none" />
-
+            <div className="relative w-full max-w-[240px] sm:max-w-[280px] aspect-square md:aspect-auto md:w-[320px] md:h-[420px] lg:w-[360px] lg:h-[480px] overflow-hidden rounded-3xl glass-panel border-none z-10">
               <img
-                src="/aditya pawar.png?v=3"
+                src="/aditya pawar.jpg"
                 alt="Aditya Dnyaneshwar Pawar"
-                className="w-full h-full object-contain object-bottom transition-transform duration-700 hover:scale-[1.03] z-10 relative"
+                className="w-full h-full object-cover object-bottom transition-transform duration-700 hover:scale-[1.03] z-10 relative"
               />
             </div>
           </div>
@@ -978,7 +943,8 @@ export default function App() {
                 <h4 className="text-xl font-bold text-gray-100 mb-4 leading-snug">
                   BCA Student &amp; Aspiring Full-Stack Developer
                 </h4>
-                <div className="text-gray-400 space-y-4 text-justify leading-relaxed text-sm md:text-base">
+                {/* Desktop Version */}
+                <div className="hidden md:block text-gray-400 space-y-4 text-justify leading-relaxed text-sm md:text-base">
                   <p>
                     I'm a computer applications student at IMR, Jalgaon, focused on building practical web applications. What started as basic coding assignments quickly turned into a passion for full-stack web development and exploring AI capabilities.
                   </p>
@@ -987,6 +953,13 @@ export default function App() {
                   </p>
                   <p>
                     Currently, I'm gaining hands-on experience through internships at SkillNexis and FlyRank AI, where I work with React, Next.js, and MongoDB. I enjoy solving real problems with clean code and building user-focused tools.
+                  </p>
+                </div>
+
+                {/* Mobile Version (Concise & Minimum) */}
+                <div className="block md:hidden text-gray-400 text-justify leading-relaxed text-sm space-y-3">
+                  <p>
+                    I'm a BCA student at IMR, Jalgaon, building web applications and exploring AI. I placed in the top 10 nationwide in Google's TechSprint with my solo project <strong>Campus Hyper Brain</strong>, and am currently gaining experience as a developer intern at SkillNexis and FlyRank AI.
                   </p>
                 </div>
               </div>
@@ -1001,8 +974,11 @@ export default function App() {
           <div className="reveal-section mb-12">
             <h2 className="text-xs uppercase tracking-widest text-indigo-400 font-bold mb-2">02 / Skills</h2>
             <h3 className="text-3xl md:text-4xl font-extrabold text-gradient-indigo">Technologies I use</h3>
-            <p className="text-gray-400 mt-2 max-w-2xl leading-relaxed text-sm">
+            <p className="hidden md:block text-gray-400 mt-2 max-w-2xl leading-relaxed text-sm">
               A list of tools, programming languages, and frameworks I've worked with in my projects and internships.
+            </p>
+            <p className="block md:hidden text-gray-400 mt-2 leading-relaxed text-xs">
+              Tools and technologies I use.
             </p>
           </div>
 
@@ -1011,50 +987,27 @@ export default function App() {
               {
                 title: 'Frontend',
                 icon: <Layers className="w-5 h-5 text-cyan-400" />,
-                skills: [
-                  { name: 'HTML5', level: '95%' },
-                  { name: 'CSS3', level: '90%' },
-                  { name: 'JavaScript (ES6+)', level: '88%' },
-                  { name: 'React', level: '85%' },
-                ],
+                skills: ['HTML5', 'CSS3', 'JavaScript', 'React'],
               },
               {
                 title: 'Programming',
                 icon: <Cpu className="w-5 h-5 text-purple-400" />,
-                skills: [
-                  { name: 'C', level: '75%' },
-                  { name: 'C++', level: '80%' },
-                  { name: 'Python', level: '78%' },
-                ],
+                skills: ['C', 'C++', 'Python'],
               },
               {
                 title: 'Backend & APIs',
                 icon: <Server className="w-5 h-5 text-indigo-400" />,
-                skills: [
-                  { name: 'REST APIs', level: '82%' },
-                  { name: 'Gemini API', level: '85%' },
-                ],
+                skills: ['REST APIs', 'Gemini API'],
               },
               {
                 title: 'Design',
                 icon: <Palette className="w-5 h-5 text-pink-400" />,
-                skills: [
-                  { name: 'UI/UX', level: '80%' },
-                  { name: 'Responsive Design', level: '95%' },
-                  { name: 'Figma', level: '75%' },
-                ],
+                skills: ['UI/UX', 'Responsive Design', 'Figma'],
               },
               {
                 title: 'Tools & Platforms',
                 icon: <Terminal className="w-5 h-5 text-emerald-400" />,
-                skills: [
-                  { name: 'Git', level: '85%' },
-                  { name: 'GitHub', level: '90%' },
-                  { name: 'VS Code', level: '95%' },
-                  { name: 'Vercel', level: '80%' },
-                  { name: 'GitHub Pages', level: '85%' },
-                  { name: 'Flutter', level: '70%' },
-                ],
+                skills: ['Git', 'GitHub', 'VS Code', 'Vercel', 'GitHub Pages', 'Flutter'],
                 fullWidth: true,
               }
             ].map((category, idx) => (
@@ -1063,26 +1016,20 @@ export default function App() {
                 className={`skills-card gsap-reveal glass-panel rounded-2xl p-6 hover:border-indigo-500/20 hover:shadow-indigo-500/5 hover:-translate-y-1 transition-all duration-300 ${category.fullWidth ? 'md:col-span-2 lg:col-span-1' : ''
                   }`}
               >
-                <div className="flex items-center gap-3 mb-6">
+                <div className="flex items-center gap-3 mb-4">
                   <div className="p-2 rounded-lg bg-white/5 border border-white/5">
                     {category.icon}
                   </div>
                   <h4 className="text-lg font-bold text-gray-100">{category.title}</h4>
                 </div>
-                <div className="space-y-4">
+                <div className="flex flex-wrap gap-2">
                   {category.skills.map((skill, sIdx) => (
-                    <div key={sIdx} className="space-y-2">
-                      <div className="flex justify-between text-xs font-semibold text-gray-300">
-                        <span>{skill.name}</span>
-                        <span className="text-cyan-400 font-bold">{skill.level}</span>
-                      </div>
-                      <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
-                        <div
-                          className="edu-fill-meter h-full bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-full"
-                          data-value={skill.level}
-                        />
-                      </div>
-                    </div>
+                    <span
+                      key={sIdx}
+                      className="px-2.5 py-1 text-xs text-gray-300 bg-white/5 rounded-lg border border-white/5 hover:border-indigo-500/30 transition-colors"
+                    >
+                      {skill}
+                    </span>
                   ))}
                 </div>
               </div>
@@ -1095,8 +1042,11 @@ export default function App() {
           <div className="mb-12">
             <h2 className="text-xs uppercase tracking-widest text-indigo-400 font-bold mb-2">03 / Internships</h2>
             <h3 className="text-3xl md:text-4xl font-extrabold text-gradient-indigo">Where I've worked</h3>
-            <p className="text-gray-400 mt-2 max-w-2xl leading-relaxed text-sm">
+            <p className="hidden md:block text-gray-400 mt-2 max-w-2xl leading-relaxed text-sm">
               Hands-on developer internships where I helped build user interfaces and API integrations.
+            </p>
+            <p className="block md:hidden text-gray-400 mt-2 leading-relaxed text-xs">
+              My software engineering internships.
             </p>
           </div>
 
@@ -1114,8 +1064,8 @@ export default function App() {
                   <div key={exp.id} className="timeline-reveal relative group">
                     {/* Glowing timeline node */}
                     <div className={`absolute -left-[31px] md:-left-[23px] top-2.5 w-4 h-4 rounded-full border-2 border-[#030712] shadow-lg transition-all duration-300 group-hover:scale-125 z-10 ${exp.current
-                        ? 'bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.5)]'
-                        : 'bg-indigo-500'
+                      ? 'bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.5)]'
+                      : 'bg-indigo-500'
                       }`} />
 
                     {/* Premium Card layout */}
@@ -1149,11 +1099,16 @@ export default function App() {
                         </div>
                       </div>
 
-                      <p className="text-gray-300 text-sm leading-relaxed text-justify mb-4">
+                      {/* Desktop Experience Description */}
+                      <p className="hidden md:block text-gray-300 text-sm leading-relaxed text-justify mb-4">
                         {exp.desc}
                       </p>
+                      {/* Mobile Experience Description */}
+                      <p className="block md:hidden text-gray-300 text-xs leading-relaxed text-justify mb-2">
+                        {exp.mobileDesc}
+                      </p>
 
-                      <ul className="list-disc pl-5 space-y-2 text-xs md:text-sm text-gray-400 mb-6">
+                      <ul className="hidden md:block list-disc pl-5 space-y-2 text-xs md:text-sm text-gray-400 mb-6">
                         {exp.highlights.map((highlight, hIdx) => (
                           <li key={hIdx}>{highlight}</li>
                         ))}
@@ -1180,8 +1135,11 @@ export default function App() {
           <div className="mb-12">
             <h2 className="text-xs uppercase tracking-widest text-indigo-400 font-bold mb-2">04 / Education</h2>
             <h3 className="text-3xl md:text-4xl font-extrabold text-gradient-indigo">Academic Path</h3>
-            <p className="text-gray-400 mt-2 max-w-2xl leading-relaxed text-sm">
+            <p className="hidden md:block text-gray-400 mt-2 max-w-2xl leading-relaxed text-sm">
               My current and previous academic credentials.
+            </p>
+            <p className="block md:hidden text-gray-400 mt-2 leading-relaxed text-xs">
+              My academic credentials.
             </p>
           </div>
 
@@ -1202,8 +1160,11 @@ export default function App() {
                     2024 - Present
                   </span>
                 </div>
-                <p className="text-xs text-gray-400 leading-relaxed mt-4">
+                <p className="hidden md:block text-xs text-gray-400 leading-relaxed mt-4">
                   Studying database management systems, data structures, object-oriented programming, and web development fundamentals.
+                </p>
+                <p className="block md:hidden text-[11px] text-gray-400 leading-relaxed mt-2">
+                  Focusing on DBMS, data structures, OOPs, and web development.
                 </p>
               </div>
               <div className="mt-8 pt-4 border-t border-white/5">
@@ -1292,8 +1253,11 @@ export default function App() {
           <div className="reveal-section mb-12">
             <h2 className="text-xs uppercase tracking-widest text-indigo-400 font-bold mb-2">05 / Projects</h2>
             <h3 className="text-3xl md:text-4xl font-extrabold text-gradient-indigo">Projects I've built</h3>
-            <p className="text-gray-400 mt-2 max-w-2xl leading-relaxed text-sm">
+            <p className="hidden md:block text-gray-400 mt-2 max-w-2xl leading-relaxed text-sm">
               A collection of web apps I built to practice different frontend and backend technologies.
+            </p>
+            <p className="block md:hidden text-gray-400 mt-2 leading-relaxed text-xs">
+              Web apps I have built.
             </p>
           </div>
 
@@ -1315,8 +1279,8 @@ export default function App() {
                         )}
 
                         <span className={`px-2 py-0.5 text-[10px] font-bold rounded flex items-center gap-1 ${project.statusType === 'saas'
-                            ? 'bg-amber-500/10 border border-amber-500/20 text-amber-500'
-                            : 'bg-emerald-500/10 border border-emerald-500/20 text-emerald-500'
+                          ? 'bg-amber-500/10 border border-amber-500/20 text-amber-500'
+                          : 'bg-emerald-500/10 border border-emerald-500/20 text-emerald-500'
                           }`}>
                           {project.statusType === 'saas' ? <Hourglass size={10} /> : <CheckCircle2 size={10} />}
                           {project.status}
@@ -1333,8 +1297,13 @@ export default function App() {
                         </p>
                       )}
 
-                      <p className="text-gray-400 text-sm leading-relaxed text-justify">
+                      {/* Desktop Project Description */}
+                      <p className="hidden md:block text-gray-400 text-sm leading-relaxed text-justify">
                         {project.desc}
+                      </p>
+                      {/* Mobile Project Description */}
+                      <p className="block md:hidden text-gray-400 text-xs leading-relaxed text-justify">
+                        {project.mobileDesc}
                       </p>
 
                       <div className="flex flex-wrap gap-2 pt-2">
@@ -1420,8 +1389,11 @@ export default function App() {
           <div className="reveal-section mb-12">
             <h2 className="text-xs uppercase tracking-widest text-indigo-400 font-bold mb-2">06 / Highlights</h2>
             <h3 className="text-3xl md:text-4xl font-extrabold text-gradient-indigo">Achievements &amp; Hackathons</h3>
-            <p className="text-gray-400 mt-2 max-w-2xl leading-relaxed text-sm">
+            <p className="hidden md:block text-gray-400 mt-2 max-w-2xl leading-relaxed text-sm">
               Events and milestones I've participated in outside of college classes.
+            </p>
+            <p className="block md:hidden text-gray-400 mt-2 leading-relaxed text-xs">
+              My hackathons and milestones.
             </p>
           </div>
 
@@ -1450,8 +1422,13 @@ export default function App() {
                       Top 10 Nationwide Finalist | Solo Developer
                     </p>
 
-                    <p className="text-gray-400 text-sm leading-relaxed text-justify">
+                    {/* Desktop Version */}
+                    <p className="hidden md:block text-gray-400 text-sm leading-relaxed text-justify">
                       Built the <strong>Campus Hyper Brain</strong> study platform as a solo developer and placed in the top 10 nationwide in Google's TechSprint hackathon. Designed the tool to automatically parse university syllabi and generate customized study aids using Gemini API models.
+                    </p>
+                    {/* Mobile Version */}
+                    <p className="block md:hidden text-gray-400 text-xs leading-relaxed text-justify">
+                      Built <strong>Campus Hyper Brain</strong> solo and placed in the top 10 nationwide in Google's TechSprint challenge.
                     </p>
 
                     <div className="flex flex-wrap gap-2 pt-2">
@@ -1508,14 +1485,15 @@ export default function App() {
               </div>
 
               {/* Google Arcade Reward Badge Card */}
-              <Tilt>
-                <div className="glass-panel rounded-2xl p-5 border border-indigo-500/10 hover:border-indigo-500/20 transition-all flex items-center gap-4 h-full">
+              <Tilt className="flex-1 flex flex-col">
+                <div className="glass-panel rounded-2xl p-5 border border-indigo-500/10 hover:border-indigo-500/20 transition-all flex items-center gap-4 flex-1 h-full">
                   <div className="p-3 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400">
                     <Medal size={24} />
                   </div>
                   <div>
                     <h5 className="font-bold text-gray-200 text-sm">Google Arcade 2025</h5>
-                    <p className="text-xs text-gray-400 mt-1">Earned Google Arcade Trooper rewards through developer challenge labs.</p>
+                    <p className="hidden md:block text-xs text-gray-400 mt-1">Earned Google Arcade Trooper rewards through developer challenge labs.</p>
+                    <p className="block md:hidden text-[11px] text-gray-400 mt-1">Earned trooper rewards through developer labs.</p>
                   </div>
                 </div>
               </Tilt>
@@ -1536,8 +1514,11 @@ export default function App() {
                     </div>
                     <h4 className="text-lg font-bold text-gray-200">Explore &amp; Evolve Hackathon</h4>
                     <p className="text-xs text-indigo-400 font-semibold mt-1">Lead Presenter</p>
-                    <p className="text-xs text-gray-400 mt-3 leading-relaxed text-justify">
+                    <p className="hidden md:block text-xs text-gray-400 mt-3 leading-relaxed text-justify">
                       Lead presenter for team CodeStrix, pitching our project to a panel of judges and securing a finalist spot in the hackathon.
+                    </p>
+                    <p className="block md:hidden text-[11px] text-gray-400 mt-2 leading-relaxed text-justify">
+                      Lead presenter for team CodeStrix, securing a finalist spot.
                     </p>
                   </div>
                   <div className="flex items-center justify-between gap-2 mt-6 pt-3 border-t border-white/5">
@@ -1577,8 +1558,11 @@ export default function App() {
                     </div>
                     <h4 className="text-lg font-bold text-gray-200">AINCAT 2025</h4>
                     <p className="text-xs text-cyan-400 font-semibold mt-1">Academic &amp; Tech Aptitude</p>
-                    <p className="text-xs text-gray-400 mt-3 leading-relaxed text-justify">
+                    <p className="hidden md:block text-xs text-gray-400 mt-3 leading-relaxed text-justify">
                       Passed the AINCAT technical assessment, demonstrating analytical skills and understanding of core computer science fundamentals.
+                    </p>
+                    <p className="block md:hidden text-[11px] text-gray-400 mt-2 leading-relaxed text-justify">
+                      Passed the assessment covering core CS fundamentals.
                     </p>
                   </div>
                   <div className="flex items-center justify-between gap-2 mt-6 pt-3 border-t border-white/5">
@@ -1615,8 +1599,11 @@ export default function App() {
                     </div>
                     <h4 className="text-lg font-bold text-gray-200">Young Turks 2025</h4>
                     <p className="text-xs text-emerald-400 font-semibold mt-1">Emerging Developer Talent</p>
-                    <p className="text-xs text-gray-400 mt-3 leading-relaxed text-justify">
+                    <p className="hidden md:block text-xs text-gray-400 mt-3 leading-relaxed text-justify">
                       Selected for the developer cohort recognizing software engineering potential and coding talent among college students.
+                    </p>
+                    <p className="block md:hidden text-[11px] text-gray-400 mt-2 leading-relaxed text-justify">
+                      Selected for the cohort recognizing emerging developer talent.
                     </p>
                   </div>
                   <div className="flex items-center justify-between gap-2 mt-6 pt-3 border-t border-white/5">
@@ -1651,8 +1638,11 @@ export default function App() {
           <div className="reveal-section mb-12">
             <h2 className="text-xs uppercase tracking-widest text-indigo-400 font-bold mb-2">07 / Certificates</h2>
             <h3 className="text-3xl md:text-4xl font-extrabold text-gradient-indigo">Certifications</h3>
-            <p className="text-gray-400 mt-2 max-w-2xl leading-relaxed text-sm">
+            <p className="hidden md:block text-gray-400 mt-2 max-w-2xl leading-relaxed text-sm">
               Coursework and simulations I've completed to learn new technologies.
+            </p>
+            <p className="block md:hidden text-gray-400 mt-2 leading-relaxed text-xs">
+              Simulations and courses completed.
             </p>
           </div>
 
@@ -1663,6 +1653,7 @@ export default function App() {
                 org: 'Deloitte',
                 badge: <Briefcase className="w-6 h-6 text-purple-400" />,
                 desc: 'Completed simulated tasks in software engineering, cloud configurations, and security audits.',
+                mobileDesc: 'Simulated software engineering, cloud, and security tasks.',
                 verifyUrl: 'https://www.theforage.com/simulations/deloitte-global/technology-gcgo',
                 certUrl: '/certificates/deloitte-job-simulation.jpg'
               },
@@ -1671,6 +1662,7 @@ export default function App() {
                 org: 'Tata Group',
                 badge: <Award className="w-6 h-6 text-indigo-400" />,
                 desc: 'Completed simulated security analyst exercises, reviewing configurations and tracking security incidents.',
+                mobileDesc: 'Simulated security analyst exercises, configuration reviews, and incident tracking.',
                 verifyUrl: 'https://www.theforage.com/simulations/tata/cybersecurity-analyst-otwo',
                 certUrl: '/certificates/cyber_security_certificate-1.jpg'
               },
@@ -1679,6 +1671,7 @@ export default function App() {
                 org: 'Reliance Foundation',
                 badge: <Layers className="w-6 h-6 text-cyan-400" />,
                 desc: 'Completed frontend training focusing on HTML/CSS structure, responsive design, and DOM manipulation.',
+                mobileDesc: 'Frontend web training covering HTML, CSS, responsive design, and DOM.',
                 verifyUrl: '#',
                 certUrl: '/certificates/front-end-reliance.jpg'
               },
@@ -1687,6 +1680,7 @@ export default function App() {
                 org: 'Infosys Springboard',
                 badge: <Code className="w-6 h-6 text-emerald-400" />,
                 desc: 'Completed coursework covering standard JavaScript scopes, asynchronous execution, and basic API requests.',
+                mobileDesc: 'JS course covering scopes, async execution, and API requests.',
                 verifyUrl: '#',
                 certUrl: '/certificates/javascript-infosys-1.jpg'
               }
@@ -1709,8 +1703,13 @@ export default function App() {
                       <h4 className="text-lg font-bold text-gray-100 group-hover:text-indigo-400 transition-colors">
                         {cert.title}
                       </h4>
-                      <p className="text-gray-400 text-xs mt-2 leading-relaxed text-justify font-sans">
+                      {/* Desktop Certification Description */}
+                      <p className="hidden md:block text-gray-400 text-xs mt-2 leading-relaxed text-justify font-sans">
                         {cert.desc}
+                      </p>
+                      {/* Mobile Certification Description */}
+                      <p className="block md:hidden text-gray-400 text-[11px] mt-2 leading-relaxed text-justify font-sans">
+                        {cert.mobileDesc}
                       </p>
                     </div>
                   </div>
@@ -1750,8 +1749,11 @@ export default function App() {
           <div className="mb-12">
             <h2 className="text-xs uppercase tracking-widest text-indigo-400 font-bold mb-2">08 / Contact</h2>
             <h3 className="text-3xl md:text-4xl font-extrabold text-gradient-indigo">Get in touch</h3>
-            <p className="text-gray-400 mt-2 max-w-2xl leading-relaxed text-sm">
+            <p className="hidden md:block text-gray-400 mt-2 max-w-2xl leading-relaxed text-sm">
               Have a question or want to work together? Drop a message below or send me an email.
+            </p>
+            <p className="block md:hidden text-gray-400 mt-2 leading-relaxed text-xs">
+              Drop a message below or send me an email.
             </p>
           </div>
 
@@ -1946,11 +1948,10 @@ export default function App() {
                         ...activeCertificate,
                         currentIndex: idx
                       })}
-                      className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all border ${
-                        activeCertificate.currentIndex === idx
-                          ? 'bg-indigo-600/20 border-indigo-500/50 text-indigo-400 shadow-md'
-                          : 'bg-white/5 border-white/5 text-gray-400 hover:text-gray-200 hover:bg-white/10'
-                      }`}
+                      className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all border ${activeCertificate.currentIndex === idx
+                        ? 'bg-indigo-600/20 border-indigo-500/50 text-indigo-400 shadow-md'
+                        : 'bg-white/5 border-white/5 text-gray-400 hover:text-gray-200 hover:bg-white/10'
+                        }`}
                     >
                       {asset.title}
                     </button>
@@ -1992,7 +1993,7 @@ export default function App() {
                 <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">
                   Asset {activeCertificate.currentIndex + 1} of {activeCertificate.assets.length}
                 </span>
-                
+
                 {activeCertificate.assets[activeCertificate.currentIndex].type === 'image' && (
                   <a
                     href={activeCertificate.assets[activeCertificate.currentIndex].url}
